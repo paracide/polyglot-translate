@@ -1,9 +1,10 @@
 import React from 'react';
 import Image from "next/image";
-import {Navbar, NavbarBrand} from "@nextui-org/react";
+
 import {unstable_setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
 import {ComponentLangProps} from "@/types/types";
+import {Navbar, NavbarBrand} from "@nextui-org/navbar";
 
 const Header: React.FC<ComponentLangProps> = ({locale}) => {
     unstable_setRequestLocale(locale);
