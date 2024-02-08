@@ -8,7 +8,9 @@ type Props = {
 
 function LangSelector({langArr}: Props) {
     return (
-        <Select>
+        <Select
+            selectionMode="multiple"
+        >
             {
                 langArr.map(([k, v], index) => (
                     <SelectItem key={index} value={k}>
