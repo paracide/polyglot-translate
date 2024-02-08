@@ -3,21 +3,21 @@ import React from 'react';
 import {Select, SelectItem} from "@nextui-org/select";
 
 type Props = {
-    langArr: Array<[string, string]>
+    langArr: Array<[string, string]>;
 }
 
-const LangSelector: React.FC<Props> = ({langArr}) => {
+function LangSelector({langArr}: Props) {
     return (
         <Select>
             {
-                langArr.map(([k, v], index) =>
+                langArr.map(([k, v], index) => (
                     <SelectItem key={index} value={k}>
                         {v}
                     </SelectItem>
-                )
+                ))
             }
         </Select>
     );
-};
+}
 
 export default LangSelector;
