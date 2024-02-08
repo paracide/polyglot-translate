@@ -2,17 +2,9 @@
   "meta": {
     "title": "多语言翻译",
     "description": "为个人和企业提供高效准确的多语言翻译服务。",
-    "keywords": "翻译, 多语言, 网站翻译, 文件翻译, 实时翻译",
-    "author": "亚瑟·夜阑",
-    "language": "中文",
-    "og": {
-      "title": "多语言翻译 - 多语言翻译服务",
-      "description": "为个人和企业提供高效准确的多语言翻译服务。"
-    },
-    "twitter": {
-      "title": "多语言翻译 - 多语言翻译服务",
-      "description": "为个人和企业提供高效准确的多语言翻译服务。"
-    },
+    "keywords": "翻译, 多语言, 网站翻译, 文件翻译, 实时翻译"
+  },
+  "components": {
     "buttons": {
       "submit": "提交",
       "copyResult": "复制结果"

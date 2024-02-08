@@ -2,17 +2,9 @@
   "meta": {
     "title": "Polyglot Translate",
     "description": "Efficient and accurate multi-language translation services suitable for individuals and businesses.",
-    "keywords": "translation, multi-language, website translation, document translation, real-time translation",
-    "author": "Arthur NightAfe",
-    "language": "English",
-    "og": {
-      "title": "Polyglot Translate - Multi-language Translation",
-      "description": "Efficient and accurate multi-language translation services suitable for individuals and businesses."
-    },
-    "twitter": {
-      "title": "Polyglot Translate - Multi-language Translation",
-      "description": "Efficient and accurate multi-language translation services suitable for individuals and businesses."
-    },
+    "keywords": "translation, multi-language, website translation, document translation, real-time translation"
+  },
+  "components": {
     "buttons": {
       "submit": "Submit",
       "copyResult": "Copy Result"

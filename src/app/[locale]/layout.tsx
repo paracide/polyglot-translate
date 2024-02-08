@@ -17,7 +17,9 @@ export async function generateMetadata(props: Props) {
     const {params: {locale}} = props;
     const t = await getTranslations({locale, namespace: 'meta'});
     return {
-        title: t('title')
+        title: t('title'),
+        description: t('description'),
+        keywords: t('keywords'),
     };
 }
 
