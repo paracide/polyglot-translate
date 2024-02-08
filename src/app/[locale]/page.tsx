@@ -1,5 +1,7 @@
 import {useTranslations} from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
+import InputCard from "@/components/InputCard";
+import React from "react";
 
 type Props = {
     params: { locale: string };
@@ -7,11 +9,15 @@ type Props = {
 
 export default function IndexPage(props: Props) {
     // Enable static rendering
-    unstable_setRequestLocale(props.params.locale);
+    const {params: {locale}} = props;
+    unstable_setRequestLocale(locale);
     const t = useTranslations('meta');
 
     return (
-        <>
-        </>
+        <main className="grid grid-cols-6">
+            <InputCard locale={locale}/>
+
+
+        </main>
     );
 }

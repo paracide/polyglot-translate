@@ -1,9 +1,9 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {locales} from '@/config';
+import {locales} from '@/config/config';
 import {Providers} from "@/app/providers";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import {NodeProps} from "@/types/types";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 
 export function generateStaticParams() {
@@ -30,7 +30,7 @@ export default async function LocaleLayout(props: NodeProps) {
         <html lang={locale}>
             <body>
                 <Providers>
-                    <Header lang={locale}/>
+                    <Header locale={locale}/>
                     {children}
                     <Footer/>
                 </Providers>

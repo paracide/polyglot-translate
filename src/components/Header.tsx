@@ -5,8 +5,8 @@ import {unstable_setRequestLocale} from "next-intl/server";
 import {useTranslations} from "next-intl";
 import {ComponentLangProps} from "@/types/types";
 
-const Header: React.FC<ComponentLangProps> = ({lang}) => {
-    unstable_setRequestLocale(lang);
+const Header: React.FC<ComponentLangProps> = ({locale}) => {
+    unstable_setRequestLocale(locale);
     const t = useTranslations('meta');
 
     return (
