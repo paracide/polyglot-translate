@@ -15,7 +15,7 @@ export default function IndexPage(props: Props) {
 
     return (
         <main className="grid grid-cols-6">
-            <InputCard locale={locale}/>
+            <InputCard/>
 
 
         </main>

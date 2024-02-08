@@ -1,14 +1,13 @@
 import React from 'react';
 import {Card, CardHeader} from "@nextui-org/card";
 import {Textarea} from "@nextui-org/input";
-import {ComponentLangProps} from "@/types/types";
-import LangSelectors from "@/components/LangSelectors";
+import LangSelectorWrap from "@/components/LangSelectorWrap";
 
-const InputCard: React.FC<ComponentLangProps> = ({locale}) => {
+const InputCard = () => {
     return (
         <Card className="max-w-xl">
             <CardHeader>
-                <LangSelectors/>
+                <LangSelectorWrap/>
             </CardHeader>
             <Textarea
                 placeholder="Enter your description"
