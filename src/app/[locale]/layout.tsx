@@ -1,19 +1,17 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {ReactNode} from 'react';
 import {locales} from '@/config';
+import {Providers} from "@/app/providers";
+import Header from "@/components/header";
+import {NodeProps} from "@/types/types";
+import Footer from "@/components/footer";
 
-
-type Props = {
-    children: ReactNode;
-    params: { locale: string };
-};
 
 export function generateStaticParams() {
     return locales.map((locale) => ({locale}));
 }
 
 //meta
-export async function generateMetadata(props: Props) {
+export async function generateMetadata(props: NodeProps) {
     const {params: {locale}} = props;
     const t = await getTranslations({locale, namespace: 'meta'});
     return {
@@ -23,15 +21,19 @@ export async function generateMetadata(props: Props) {
     };
 }
 
-export default async function LocaleLayout(props: Props) {
+export default async function LocaleLayout(props: NodeProps) {
     // Enable static rendering
     const {params: {locale}, children} = props;
     unstable_setRequestLocale(locale);
 
     return (
-        <html className="h-full" lang={locale}>
+        <html lang={locale}>
             <body>
-                {children}
+                <Providers>
+                    <Header lang={locale}/>
+                    {children}
+                    <Footer/>
+                </Providers>
             </body>
         </html>
     );
