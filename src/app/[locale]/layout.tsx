@@ -1,10 +1,36 @@
-export default function LocaleLayout({children, params: {locale}}: {
-    children: React.ReactNode;
+import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import {ReactNode} from 'react';
+import {locales} from '@/config';
+
+
+type Props = {
+    children: ReactNode;
     params: { locale: string };
-}) {
+};
+
+export function generateStaticParams() {
+    return locales.map((locale) => ({locale}));
+}
+
+//meta
+export async function generateMetadata(props: Props) {
+    const {params: {locale}} = props;
+    const t = await getTranslations({locale, namespace: 'meta'});
+    return {
+        title: t('title')
+    };
+}
+
+export default async function LocaleLayout(props: Props) {
+    // Enable static rendering
+    const {params: {locale}, children} = props;
+    unstable_setRequestLocale(locale);
+
     return (
-        <html lang={locale}>
-            <body>{children}</body>
+        <html className="h-full" lang={locale}>
+            <body>
+                {children}
+            </body>
         </html>
     );
 }
