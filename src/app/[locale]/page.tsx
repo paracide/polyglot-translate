@@ -1,6 +1,5 @@
 import {useTranslations} from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
-import InputCard from "@/components/InputCard";
 import React from "react";
 
 type Props = {
@@ -15,9 +14,6 @@ export default function IndexPage(props: Props) {
 
     return (
         <main className="grid grid-cols-6">
-            <InputCard/>
-
-
         </main>
     );
 }
