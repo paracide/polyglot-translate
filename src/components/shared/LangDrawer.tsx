@@ -19,28 +19,28 @@ type Props = {
 export default function OlButton(props: Props) {
     const {title, children} = props;
     return (
-        <Drawer>
-            <DrawerTrigger>
-                <Button>
+        <div>
+            <Drawer>
+                <DrawerTrigger>
                     {title}
-                </Button>
-            </DrawerTrigger>
-            <DrawerContent>
-                <DrawerHeader>
-                    <DrawerTitle>{title}</DrawerTitle>
-                    <DrawerDescription>
-                        <ScrollArea className="h-96 w-screen">
-                            {children}
-                        </ScrollArea>
-                    </DrawerDescription>
-                </DrawerHeader>
-                <DrawerFooter>
-                    <DrawerClose>
-                        <Button>OK</Button>
-                        <Button variant="outline">Cancel</Button>
-                    </DrawerClose>
-                </DrawerFooter>
-            </DrawerContent>
-        </Drawer>
+                </DrawerTrigger>
+                <DrawerContent>
+                    <DrawerHeader>
+                        <DrawerTitle>{title}</DrawerTitle>
+                        <DrawerDescription>
+                            <ScrollArea className="h-96 w-screen">
+                                {children}
+                            </ScrollArea>
+                        </DrawerDescription>
+                    </DrawerHeader>
+                    <DrawerFooter>
+                        <DrawerClose>
+                            <Button>OK</Button>
+                            <Button variant="outline">Cancel</Button>
+                        </DrawerClose>
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
+        </div>
     );
 }

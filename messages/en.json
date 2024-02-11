@@ -5,6 +5,7 @@
     "keywords": "translation, multi-language, website translation, document translation, real-time translation"
   },
   "components": {
+    "inputPlaceholder": "Enter Text",
     "buttons": {
       "submit": "Submit",
       "copyResult": "Copy Result"

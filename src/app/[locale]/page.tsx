@@ -1,3 +1,4 @@
+import ResultCard from '@/components/shared/ResultCard';
 import {useTranslations} from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
 import React from "react";
@@ -13,7 +14,8 @@ export default function IndexPage(props: Props) {
     const t = useTranslations('meta');
 
     return (
-        <main className="grid grid-cols-6">
+        <main className="grid grid-cols-2">
+            <ResultCard lang='en'/>
         </main>
     );
 }
