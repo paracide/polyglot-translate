@@ -1,6 +1,6 @@
 import {resultStore} from "@/store/store";
 
-export async function goGoogle(originalLang: string, targetLang: string, text: string): Promise<string[]> {
+async function goGoogle(originalLang: string, targetLang: string, text: string): Promise<string[]> {
     const baseUrl = "https://clients5.google.com/translate_a/t";
     const queryParams = new URLSearchParams({
         client: "dict-chrome-ex",
@@ -10,37 +10,26 @@ export async function goGoogle(originalLang: string, targetLang: string, text: s
     });
     const url = `${baseUrl}?${queryParams.toString()}`;
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-        }
-        return await response.json() as Promise<string[]>;
-    } catch (error) {
-        console.error(error);
-        throw error; // Re-throw the error for the caller to handle
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
     }
+    return await response.json() as Promise<string[]>;
 }
 
-
-export const translateOne = async (originLang: string, targetLang: string, text: string) => {
+export const translateOne = (originLang: string, targetLang: string, text: string) => {
     if (text.trim() === '') {
         resultStore.results.clear();
+        return; // 直接返回，避免执行空的翻译请求
     }
-    try {
-        const response = await goGoogle(originLang, targetLang, text);
-        resultStore.results.set(targetLang, response[0]);
-    } catch (error) {
-        console.error('Translation error:', error);
-    }
+    return goGoogle(originLang, targetLang, text)
+        .then(response => resultStore.results.set(targetLang, response[0]))
+        .catch(error => console.error('Translation error:', error));
 }
 
-export const translateAll = async (originLang: string, targetLang: string[], text: string) => {
-    targetLang.forEach(v => {
-        translateOne(originLang, v, text).catch(error => {
-            console.error(`Translation error for language ${v}:`, error);
-        });
-    });
+export const translateAll = (originLang: string, targetLangs: string[], text: string) => {
+    const translations = targetLangs.map(targetLang =>
+        translateOne(originLang, targetLang, text)
+    );
+    return Promise.all(translations);
 };
-
-

@@ -1,13 +1,12 @@
 import React from 'react';
 import Image from "next/image";
 import {useTranslations} from "next-intl";
-import {ComponentLangProps} from "@/types/types";
 import OlButton from "@/components/shared/OlButton";
 import langArr from "@/config/langArr";
 import TlButton from './TlButton';
 import InputBar from "@/components/shared/InputBar";
 
-const Header: React.FC<ComponentLangProps> = ({locale}) => {
+const Header = () => {
     const metaT = useTranslations('meta');
     const langT = useTranslations("languages")
     const componentsT = useTranslations("components")

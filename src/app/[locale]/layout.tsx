@@ -24,11 +24,10 @@ export default async function LocaleLayout(props: NodeProps) {
     const {params: {locale}, children} = props;
     unstable_setRequestLocale(locale);
 
-    //NextIntlClientProvider allow i18n works in client components
     return (
         <html lang={locale}>
             <body>
-                <Header locale={locale}/>
+                <Header/>
                 {children}
                 <Footer/>
             </body>
