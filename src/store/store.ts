@@ -1,5 +1,6 @@
 import {proxy} from "valtio";
-import {proxyMap} from "valtio/utils";
+import {proxyMap, subscribeKey} from "valtio/utils";
+import {translateAll} from "@/apis/googleApi";
 
 type storageStore = {
     lang: string,
@@ -19,4 +20,8 @@ export const storageStore = proxy<storageStore>({
 export const resultStore = proxy<resultStore>({
     input: '',
     results: proxyMap<string, string>()
+});
+
+subscribeKey(storageStore, 'lang', v => {
+    translateAll();
 });

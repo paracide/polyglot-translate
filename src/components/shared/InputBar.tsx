@@ -3,6 +3,7 @@ import React from 'react';
 import {Input} from '../ui/input';
 import {Button} from "@/components/ui/button";
 import {resultStore} from "@/store/store";
+import {translateAll} from "@/apis/googleApi";
 
 type Props = {
     placeholder: string,
@@ -15,7 +16,7 @@ function InputBar(props: Props) {
         <>
             <Input type="text" placeholder={placeholder}
                    onChange={event => resultStore.input = (event.target.value)}/>
-            <Button type="submit">{submit}</Button>
+            <Button onClick={translateAll}>{submit}</Button>
         </>
     );
 }

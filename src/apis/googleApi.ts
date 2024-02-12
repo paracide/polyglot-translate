@@ -1,4 +1,4 @@
-import {resultStore} from "@/store/store";
+import {resultStore, storageStore} from "@/store/store";
 
 async function goGoogle(originalLang: string, targetLang: string, text: string): Promise<string[]> {
     const baseUrl = "https://clients5.google.com/translate_a/t";
@@ -17,19 +17,18 @@ async function goGoogle(originalLang: string, targetLang: string, text: string):
     return await response.json() as Promise<string[]>;
 }
 
-export const translateOne = (originLang: string, targetLang: string, text: string) => {
-    if (text.trim() === '') {
+export function translateOne(targetLang: string) {
+    if (resultStore.input.trim() === '') {
         resultStore.results.clear();
         return; // 直接返回，避免执行空的翻译请求
     }
-    return goGoogle(originLang, targetLang, text)
+    return goGoogle(storageStore.lang, targetLang, resultStore.input)
         .then(response => resultStore.results.set(targetLang, response[0]))
         .catch(error => console.error('Translation error:', error));
 }
 
-export const translateAll = (originLang: string, targetLangs: string[], text: string) => {
-    const translations = targetLangs.map(targetLang =>
-        translateOne(originLang, targetLang, text)
+export function translateAll() {
+    storageStore.targetLang.map(targetLang =>
+        translateOne(targetLang)
     );
-    return Promise.all(translations);
-};
+}

@@ -6,6 +6,7 @@ import {Checkbox} from "@/components/ui/checkbox";
 import {useSnapshot} from "valtio";
 import {storageStore} from "@/store/store";
 import _ from "lodash";
+import {translateOne} from "@/apis/googleApi";
 
 type Props = {
     langArr: Array<[string, string]>
@@ -25,6 +26,7 @@ export default function OlButton({langArr}: Props) {
                                       const targetLang = storageStore.targetLang;
                                       if (checked) {
                                           if (!targetLang.includes(k)) {
+                                              translateOne(k);
                                               targetLang.push(k)
                                           }
                                       } else {
