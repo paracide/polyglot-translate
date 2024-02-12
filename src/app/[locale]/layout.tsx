@@ -3,6 +3,7 @@ import {locales} from '@/config/config';
 import Header from "@/components/shared/Header";
 import {NodeProps} from "@/types/types";
 import Footer from "@/components/shared/Footer";
+import {NextIntlClientProvider, useMessages} from "next-intl";
 
 export function generateStaticParams() {
     return locales.map((locale) => ({locale}));
@@ -19,18 +20,22 @@ export async function generateMetadata(props: NodeProps) {
     };
 }
 
-export default async function LocaleLayout(props: NodeProps) {
+export default function LocaleLayout(props: NodeProps) {
     // Enable static rendering
     const {params: {locale}, children} = props;
     unstable_setRequestLocale(locale);
+    const messages = useMessages();
 
     return (
         <html lang={locale}>
             <body>
-                <Header/>
-                {children}
-                <Footer/>
+                <NextIntlClientProvider messages={messages}>
+                    <Header/>
+                    {children}
+                    <Footer/>
+                </NextIntlClientProvider>
             </body>
+
         </html>
     );
 }

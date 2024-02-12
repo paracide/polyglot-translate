@@ -1,19 +1,22 @@
 import {proxy} from "valtio";
+import {proxyMap} from "valtio/utils";
 
-type localeStore = {
+type storageStore = {
     lang: string,
     targetLang: Array<string>,
 }
 
-type InputContentStore = {
+type resultStore = {
     input: string,
+    results: Map<string, string>
 }
 
-export const originLangStore = proxy<localeStore>({
+export const storageStore = proxy<storageStore>({
     lang: 'en',
     targetLang: ['zh-CN'],
 });
 
-export const inputContentStore = proxy<InputContentStore>({
+export const resultStore = proxy<resultStore>({
     input: '',
+    results: proxyMap<string, string>()
 });

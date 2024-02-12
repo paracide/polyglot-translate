@@ -2,7 +2,7 @@
 import React from 'react';
 import {Input} from '../ui/input';
 import {Button} from "@/components/ui/button";
-import {inputContentStore} from "@/store/store";
+import {resultStore} from "@/store/store";
 
 type Props = {
     placeholder: string,
@@ -14,7 +14,7 @@ function InputBar(props: Props) {
     return (
         <>
             <Input type="text" placeholder={placeholder}
-                   onChange={event => inputContentStore.input = (event.target.value)}/>
+                   onChange={event => resultStore.input = (event.target.value)}/>
             <Button type="submit">{submit}</Button>
         </>
     );
