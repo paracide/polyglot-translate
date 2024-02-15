@@ -4,7 +4,7 @@ import {Label} from "@/components/ui/label";
 import LangDrawer from "./LangDrawer";
 import {Checkbox} from "@/components/ui/checkbox";
 import {useSnapshot} from "valtio";
-import {storageStore} from "@/store/store";
+import {persistStore} from "@/store/store";
 import _ from "lodash";
 import {translateOne} from "@/apis/googleApi";
 
@@ -13,7 +13,7 @@ type Props = {
 }
 
 export default function OlButton({langArr}: Props) {
-    const langSnap = useSnapshot(storageStore);
+    const langSnap = useSnapshot(persistStore);
 
     return (
         <LangDrawer title="Target Lang">
@@ -23,7 +23,7 @@ export default function OlButton({langArr}: Props) {
                         <Checkbox id={k} value={k}
                                   checked={langSnap.targetLang.includes(k)}
                                   onCheckedChange={(checked => {
-                                      const targetLang = storageStore.targetLang;
+                                      const targetLang = persistStore.targetLang;
                                       if (checked) {
                                           if (!targetLang.includes(k)) {
                                               translateOne(k);
