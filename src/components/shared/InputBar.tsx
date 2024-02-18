@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
-import {Input} from '../ui/input';
-import {Button} from "@/components/ui/button";
 import {resultStore} from "@/store/store";
 import {translateAll} from "@/apis/googleApi";
+import {Input} from "@nextui-org/input";
+import {Button} from "@nextui-org/button";
 
 type Props = {
     placeholder: string,

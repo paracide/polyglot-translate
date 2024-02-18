@@ -4,6 +4,7 @@ import Header from "@/components/shared/Header";
 import {NodeProps} from "@/types/types";
 import Footer from "@/components/shared/Footer";
 import {NextIntlClientProvider, useMessages} from "next-intl";
+import {Providers} from "@/app/[locale]/provider";
 
 export function generateStaticParams() {
     return locales.map((locale) => ({locale}));
@@ -29,12 +30,14 @@ export default function LocaleLayout(props: NodeProps) {
     return (
         <html lang={locale}>
             <body>
-                <NextIntlClientProvider messages={messages}>
-                    <div className="gradient"></div>
-                    <Header/>
-                    {children}
-                    <Footer/>
-                </NextIntlClientProvider>
+                <Providers>
+                    <NextIntlClientProvider messages={messages}>
+                        <div className="gradient"></div>
+                        <Header/>
+                        {children}
+                        <Footer/>
+                    </NextIntlClientProvider>
+                </Providers>
             </body>
 
         </html>

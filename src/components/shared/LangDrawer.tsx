@@ -1,16 +1,7 @@
+'use client'
 import React, {ReactNode} from "react";
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger
-} from "@/components/ui/drawer";
-import {Button} from "@/components/ui/button";
-import {ScrollArea} from "@/components/ui/scroll-area";
+import {Modal, useDisclosure} from "@nextui-org/modal";
+import {Button, ModalBody, ModalContent, ModalFooter, ModalHeader} from "@nextui-org/react";
 
 type Props = {
     title: string;
@@ -18,29 +9,31 @@ type Props = {
 };
 export default function OlButton(props: Props) {
     const {title, children} = props;
+    const {isOpen, onOpen, onClose} = useDisclosure();
+
     return (
-        <div>
-            <Drawer>
-                <DrawerTrigger>
-                    {title}
-                </DrawerTrigger>
-                <DrawerContent>
-                    <DrawerHeader>
-                        <DrawerTitle>{title}</DrawerTitle>
-                        <DrawerDescription>
-                            <ScrollArea className="h-96 w-screen">
+        <>
+            <Button onPress={onOpen}>O Lang</Button>
+            <Modal size="full" isOpen={isOpen} onClose={onClose}>
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+                            <ModalBody>
                                 {children}
-                            </ScrollArea>
-                        </DrawerDescription>
-                    </DrawerHeader>
-                    <DrawerFooter>
-                        <DrawerClose>
-                            <Button>OK</Button>
-                            <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                    </DrawerFooter>
-                </DrawerContent>
-            </Drawer>
-        </div>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Close
+                                </Button>
+                                <Button color="primary" onPress={onClose}>
+                                    Action
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
+        </>
     );
 }

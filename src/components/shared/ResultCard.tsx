@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
-import {Card, CardContent, CardHeader} from "@/components/ui/card";
 import {useSnapshot} from "valtio";
 import {resultStore} from "@/store/store";
 import {useTranslations} from "next-intl";
+import {Card, CardBody, CardHeader} from "@nextui-org/card";
 
 type Props = {
     lang: string;
@@ -18,11 +18,11 @@ export default function ResultCard({lang}: Props) {
             <CardHeader>
                 <h2>{langT(lang)}</h2>
             </CardHeader>
-            <CardContent>
+            <CardBody>
                 <p>
                     {resultSnap.results.get(lang)}
                 </p>
-            </CardContent>
+            </CardBody>
         </Card>
     );
 };
