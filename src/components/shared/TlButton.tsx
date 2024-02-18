@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import {useSnapshot} from "valtio";
-import {persistStore} from "@/store/store";
+import {persistStore, setTargetLang} from "@/store/store";
 import {Checkbox, CheckboxGroup} from "@nextui-org/checkbox";
 import LangModal from "./LangModal";
 import {useTranslations} from "next-intl";
@@ -19,7 +19,7 @@ export default function OlButton({langArr}: Props) {
             <CheckboxGroup className="columns-7" color="secondary"
                            orientation="horizontal"
                            value={persistStore.targetLang}
-                           onValueChange={arr => persistStore.targetLang = arr}>
+                           onValueChange={setTargetLang}>
                 {langArr.map(([k, v]) => (
                     <Checkbox className="w-48 max-w-48" key={k} id={k} value={k} color="secondary">
                         {v}

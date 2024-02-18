@@ -17,6 +17,10 @@ export const persistStore = proxy<PersistStore>({
     targetLang: ['zh-CN']
 });
 
+export function setTargetLang(arr: Array<string>) {
+    persistStore.targetLang = arr;
+}
+
 export const resultStore = proxy<ResultStore>({
     input: '',
     results: proxyMap<string, string>()
