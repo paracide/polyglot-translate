@@ -8,7 +8,9 @@
     "inputPlaceholder": "Enter Text",
     "buttons": {
       "submit": "Submit",
-      "copyResult": "Copy Result"
+      "copyResult": "Copy Result",
+      "originalLang": "Original",
+      "targetLang": "Target"
     }
   },
   "languages": {

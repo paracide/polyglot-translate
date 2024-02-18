@@ -3,7 +3,8 @@ import React from "react";
 import {useSnapshot} from "valtio";
 import {persistStore} from "@/store/store";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import LangDrawer from "./LangDrawer";
+import LangModal from "./LangModal";
+import {useTranslations} from "next-intl";
 
 type Props = {
     langArr: Array<[string, string]>
@@ -11,19 +12,20 @@ type Props = {
 
 export default function OlButton({langArr}: Props) {
     const originLangSnap = useSnapshot(persistStore);
+    const componentsT = useTranslations("components")
+
     return (
-        <LangDrawer title="Origin Lang">
-            <RadioGroup
-                label={'Origin:' + originLangSnap.origLang}
-                orientation="horizontal"
+        <LangModal title={componentsT('buttons.originalLang')}>
+            <RadioGroup orientation="horizontal" defaultValue={originLangSnap.origLang}
+                        onValueChange={v => persistStore.origLang = v}
             >
                 {langArr.map(([k, v], index) => (
-                    <Radio key={index} value={k}>
+                    <Radio size="sm" color="primary" className="w-48 max-w-48" key={index} value={k}>
                         {v}
                     </Radio>
                 ))}
             </RadioGroup>
-        </LangDrawer>
+        </LangModal>
 
     );
 }

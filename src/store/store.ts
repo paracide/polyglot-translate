@@ -14,7 +14,7 @@ type ResultStore = {
 
 export const persistStore = proxy<PersistStore>({
     origLang: 'en',
-    targetLang: ['zh-CN'],
+    targetLang: ['zh-CN']
 });
 
 export const resultStore = proxy<ResultStore>({

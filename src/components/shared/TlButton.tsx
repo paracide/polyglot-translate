@@ -2,10 +2,9 @@
 import React from "react";
 import {useSnapshot} from "valtio";
 import {persistStore} from "@/store/store";
-import _ from "lodash";
-import {translateOne} from "@/apis/googleApi";
 import {Checkbox, CheckboxGroup} from "@nextui-org/checkbox";
-import LangDrawer from "./LangDrawer";
+import LangModal from "./LangModal";
+import {useTranslations} from "next-intl";
 
 type Props = {
     langArr: Array<[string, string]>
@@ -13,30 +12,21 @@ type Props = {
 
 export default function OlButton({langArr}: Props) {
     const langSnap = useSnapshot(persistStore);
+    const componentsT = useTranslations("components")
+
     return (
-        <LangDrawer title="Target">
-            <CheckboxGroup label="Select cities"
+        <LangModal title={componentsT('buttons.targetLang')}>
+            <CheckboxGroup className="columns-7" color="secondary"
                            orientation="horizontal"
-                           color="secondary">
-                {langArr.map(([k, v], index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                        <Checkbox id={k} value={k}
-                                  checked={langSnap.targetLang.includes(k)}
-                                  onChange={(checked => {
-                                      const targetLang = persistStore.targetLang;
-                                      if (checked) {
-                                          if (!targetLang.includes(k)) {
-                                              translateOne(k);
-                                              targetLang.push(k)
-                                          }
-                                      } else {
-                                          _.remove(targetLang, value => value === k);
-                                      }
-                                  })}/>
-                    </div>
+                           value={persistStore.targetLang}
+                           onValueChange={arr => persistStore.targetLang = arr}>
+                {langArr.map(([k, v]) => (
+                    <Checkbox className="w-48 max-w-48" key={k} id={k} value={k} color="secondary">
+                        {v}
+                    </Checkbox>
                 ))}
             </CheckboxGroup>
-        </LangDrawer>
+        </LangModal>
 
 
     );

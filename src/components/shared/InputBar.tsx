@@ -4,19 +4,20 @@ import {resultStore} from "@/store/store";
 import {translateAll} from "@/apis/googleApi";
 import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
+import {NavbarItem} from "@nextui-org/navbar";
+import {useTranslations} from "next-intl";
 
-type Props = {
-    placeholder: string,
-    submit: string
-}
-
-function InputBar(props: Props) {
-    const {placeholder, submit} = props;
+function InputBar() {
+    const componentsT = useTranslations("components")
     return (
         <>
-            <Input type="text" placeholder={placeholder}
-                   onChange={event => resultStore.input = (event.target.value)}/>
-            <Button onClick={translateAll}>{submit}</Button>
+            <NavbarItem>
+                <Input type="text" placeholder={componentsT("inputPlaceholder")}
+                       onChange={event => resultStore.input = (event.target.value)}/>
+            </NavbarItem>
+            <NavbarItem>
+                <Button onClick={translateAll}>{componentsT("buttons.submit")}</Button>
+            </NavbarItem>
         </>
     );
 }

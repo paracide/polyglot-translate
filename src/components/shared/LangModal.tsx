@@ -1,7 +1,7 @@
 'use client'
 import React, {ReactNode} from "react";
 import {Modal, useDisclosure} from "@nextui-org/modal";
-import {Button, ModalBody, ModalContent, ModalFooter, ModalHeader} from "@nextui-org/react";
+import {Button, ModalBody, ModalContent, ModalHeader} from "@nextui-org/react";
 
 type Props = {
     title: string;
@@ -13,8 +13,8 @@ export default function OlButton(props: Props) {
 
     return (
         <>
-            <Button onPress={onOpen}>O Lang</Button>
-            <Modal size="full" isOpen={isOpen} onClose={onClose}>
+            <Button onPress={onOpen}>{title}</Button>
+            <Modal scrollBehavior="inside" placement="auto" size="5xl" isOpen={isOpen} onClose={onClose}>
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -22,14 +22,6 @@ export default function OlButton(props: Props) {
                             <ModalBody>
                                 {children}
                             </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
-                                </Button>
-                            </ModalFooter>
                         </>
                     )}
                 </ModalContent>
