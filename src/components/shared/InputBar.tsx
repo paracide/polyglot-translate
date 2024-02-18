@@ -8,18 +8,18 @@ import {NavbarItem} from "@nextui-org/navbar";
 import {useTranslations} from "next-intl";
 
 function InputBar() {
-    const componentsT = useTranslations("components")
-    return (
-        <>
-            <NavbarItem>
-                <Input type="text" placeholder={componentsT("inputPlaceholder")}
-                       onChange={event => resultStore.input = (event.target.value)}/>
-            </NavbarItem>
-            <NavbarItem>
-                <Button onClick={translateAll}>{componentsT("buttons.submit")}</Button>
-            </NavbarItem>
-        </>
-    );
+  const componentsT = useTranslations("components")
+  return (
+    <>
+      <NavbarItem>
+        <Input type="text" placeholder={componentsT("inputPlaceholder")}
+               onChange={event => resultStore.input = (event.target.value)}/>
+      </NavbarItem>
+      <NavbarItem>
+        <Button onClick={translateAll}>{componentsT("buttons.submit")}</Button>
+      </NavbarItem>
+    </>
+  );
 }
 
 export default InputBar;

@@ -6,24 +6,24 @@ import {useTranslations} from "next-intl";
 import {Card, CardBody, CardHeader} from "@nextui-org/card";
 
 type Props = {
-    lang: string;
+  lang: string;
 }
 
 export default function ResultCard({lang}: Props) {
-    const resultSnap = useSnapshot(resultStore);
-    const langT = useTranslations("languages")
+  const resultSnap = useSnapshot(resultStore);
+  const langT = useTranslations("languages")
 
-    return (
-        <Card className="w-[350px]">
-            <CardHeader>
-                <h2>{langT(lang)}</h2>
-            </CardHeader>
-            <CardBody>
-                <p>
-                    {resultSnap.results.get(lang)}
-                </p>
-            </CardBody>
-        </Card>
-    );
+  return (
+    <Card className="w-[350px]">
+      <CardHeader>
+        <h2>{langT(lang)}</h2>
+      </CardHeader>
+      <CardBody>
+        <p>
+          {resultSnap.results.get(lang)}
+        </p>
+      </CardBody>
+    </Card>
+  );
 };
 

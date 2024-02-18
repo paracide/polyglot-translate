@@ -1,9 +1,9 @@
 import {ReactNode} from "react";
 
 export type ComponentLangProps = {
-    locale: string;
+  locale: string;
 }
 export type NodeProps = {
-    children: ReactNode;
-    params: { locale: string };
+  children: ReactNode;
+  params: { locale: string };
 };

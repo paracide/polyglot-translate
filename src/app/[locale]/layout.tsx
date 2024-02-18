@@ -7,39 +7,39 @@ import {NextIntlClientProvider, useMessages} from "next-intl";
 import {Providers} from "@/app/[locale]/provider";
 
 export function generateStaticParams() {
-    return locales.map((locale) => ({locale}));
+  return locales.map((locale) => ({locale}));
 }
 
 //meta
 export async function generateMetadata(props: NodeProps) {
-    const {params: {locale}} = props;
-    const t = await getTranslations({locale, namespace: 'meta'});
-    return {
-        title: t('title'),
-        description: t('description'),
-        keywords: t('keywords'),
-    };
+  const {params: {locale}} = props;
+  const t = await getTranslations({locale, namespace: 'meta'});
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+  };
 }
 
 export default function LocaleLayout(props: NodeProps) {
-    // Enable static rendering
-    const {params: {locale}, children} = props;
-    unstable_setRequestLocale(locale);
-    const messages = useMessages();
+  // Enable static rendering
+  const {params: {locale}, children} = props;
+  unstable_setRequestLocale(locale);
+  const messages = useMessages();
 
-    return (
-        <html lang={locale}>
-            <body>
-                <Providers>
-                    <NextIntlClientProvider messages={messages}>
-                        <div className="gradient"></div>
-                        <Header/>
-                        {children}
-                        <Footer/>
-                    </NextIntlClientProvider>
-                </Providers>
-            </body>
+  return (
+    <html lang={locale}>
+      <body>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
+            <div className="gradient"></div>
+            <Header/>
+            {children}
+            <Footer/>
+          </NextIntlClientProvider>
+        </Providers>
+      </body>
 
-        </html>
-    );
+    </html>
+  );
 }
