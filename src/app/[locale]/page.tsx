@@ -3,6 +3,7 @@ import ResultCard from '@/components/shared/ResultCard';
 import React, {useEffect} from "react";
 import {persistStore} from "@/store/store";
 import {subscribe, useSnapshot} from "valtio";
+import SearchCard from "@/components/shared/SearchCard";
 
 export default function IndexPage() {
   const storageSnap = useSnapshot(persistStore);
@@ -19,7 +20,8 @@ export default function IndexPage() {
   subscribe(persistStore, () => localStorage.setItem(myStateKey, JSON.stringify(persistStore)))
 
   return (
-    <main className="container grid gap-4 grid-cols-1 md:grid-cols-3  ">
+    <main className="grid grid-cols-1 md:grid-cols-3">
+      <SearchCard/>
       {
         storageSnap.targetLang.map(lang =>
           <ResultCard key={lang} lang={lang}/>

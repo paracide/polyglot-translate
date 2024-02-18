@@ -13,12 +13,12 @@ export default function OlButton(props: Props) {
 
   return (
     <>
-      <Button onPress={onOpen}>{title}</Button>
+      <Button onPress={onOpen} variant="ghost">{title}</Button>
       <Modal disableAnimation scrollBehavior="inside" placement="auto" size="5xl" isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+              <ModalHeader>{title}</ModalHeader>
               <ModalBody>
                 {children}
               </ModalBody>

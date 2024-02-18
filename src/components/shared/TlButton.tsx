@@ -16,7 +16,7 @@ export default function OlButton({langArr}: Props) {
 
   return (
     <LangModal title={componentsT('buttons.targetLang')}>
-      <CheckboxGroup className="columns-7" color="secondary"
+      <CheckboxGroup color="secondary"
                      orientation="horizontal"
                      value={persistStore.targetLang}
                      onValueChange={setTargetLang}>

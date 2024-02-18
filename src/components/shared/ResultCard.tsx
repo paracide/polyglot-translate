@@ -14,7 +14,7 @@ export default function ResultCard({lang}: Props) {
   const langT = useTranslations("languages")
 
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full">
       <CardHeader>
         <h2>{langT(lang)}</h2>
       </CardHeader>

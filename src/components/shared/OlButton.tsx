@@ -11,12 +11,14 @@ type Props = {
 }
 
 export default function OlButton({langArr}: Props) {
-  const originLangSnap = useSnapshot(persistStore);
+  const persistSnap = useSnapshot(persistStore);
   const componentsT = useTranslations("components")
+  const languageT = useTranslations("languages")
 
   return (
-    <LangModal title={componentsT('buttons.originalLang')}>
-      <RadioGroup orientation="horizontal" defaultValue={originLangSnap.origLang}
+    <LangModal title={languageT(persistSnap.origLang)}>
+      <RadioGroup className="w-full flex-wrap" orientation="horizontal"
+                  defaultValue={persistSnap.origLang}
                   onValueChange={v => persistStore.origLang = v}
       >
         {langArr.map(([k, v], index) => (
