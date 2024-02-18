@@ -19,7 +19,7 @@ export default function IndexPage() {
     subscribe(persistStore, () => localStorage.setItem(myStateKey, JSON.stringify(persistStore)))
 
     return (
-        <main className="grid grid-cols-2">
+        <main className="container grid gap-4 grid-cols-1 md:grid-cols-3  ">
             {
                 storageSnap.targetLang.map(lang =>
                     <ResultCard key={lang} lang={lang}/>
