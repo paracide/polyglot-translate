@@ -21,7 +21,7 @@ export async function generateMetadata(props: NodeProps) {
     description: t('description'),
     keywords: t('keywords'),
     icons: {
-      icon: '/favicon.ico',
+      icon: '/icon.webp',
     },
   };
 }
