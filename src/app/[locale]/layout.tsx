@@ -21,7 +21,7 @@ export async function generateMetadata(props: NodeProps) {
   };
 }
 
-export default function LocaleLayout(props: NodeProps) {
+export default function LocaleLayout(props: Readonly<NodeProps>) {
   // Enable static rendering
   const {params: {locale}, children} = props;
   unstable_setRequestLocale(locale);
