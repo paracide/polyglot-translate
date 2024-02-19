@@ -5,6 +5,8 @@ import {NodeProps} from "@/types/types";
 import Footer from "@/components/shared/Footer";
 import {NextIntlClientProvider, useMessages} from "next-intl";
 import {Providers} from "@/app/[locale]/provider";
+import {Analytics} from "@vercel/analytics/next";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));
@@ -38,6 +40,8 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
             <Footer/>
           </NextIntlClientProvider>
         </Providers>
+        <Analytics/>
+        <SpeedInsights/>
       </body>
 
     </html>
