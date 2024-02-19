@@ -5,6 +5,8 @@ import OlButton from "@/components/shared/OlButton";
 import langArr from "@/config/langArr";
 import TlButton from './TlButton';
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar";
+import LangButton from "@/components/shared/LangButton";
+import {ButtonGroup} from "@nextui-org/button";
 
 const Header = () => {
   const metaT = useTranslations('meta');
@@ -18,12 +20,14 @@ const Header = () => {
         <span className="sm:flex hidden">{metaT('title')}</span>
       </NavbarBrand>
       <NavbarContent justify="end">
+
         <NavbarItem>
-          <OlButton langArr={localeLangArr}/>
+          <ButtonGroup>
+            <OlButton langArr={localeLangArr}/>
+            <TlButton langArr={localeLangArr}/>
+            <LangButton/>
+          </ButtonGroup>
         </NavbarItem>
-        {<NavbarItem>
-          <TlButton langArr={localeLangArr}/>
-        </NavbarItem>}
       </NavbarContent>
     </Navbar>
   );
