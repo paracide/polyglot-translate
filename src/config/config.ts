@@ -1,4 +1,5 @@
 export const locales = ['en', 'zh', 'fr', 'de', 'ja', 'es'];
+export const localePrefix = 'always'; // Default
 export const localesNames = [
   {
     key: "en",
