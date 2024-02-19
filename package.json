@@ -11,7 +11,6 @@
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
     "@types/lodash": "^4.14.202",
-    "firebase": "^10.8.0",
     "framer-motion": "^11.0.5",
     "lodash": "^4.17.21",
     "next": "14.1.0",
