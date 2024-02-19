@@ -20,6 +20,9 @@ export async function generateMetadata(props: NodeProps) {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    icons: {
+      icon: '/favicon.ico',
+    },
   };
 }
 
@@ -43,7 +46,6 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
         <Analytics/>
         <SpeedInsights/>
       </body>
-
     </html>
   );
 }
