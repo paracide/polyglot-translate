@@ -14,7 +14,28 @@ export default function OlButton(props: Readonly<Props>) {
   return (
     <>
       <Button color="primary" onPress={onOpen} variant="light">{title}</Button>
-      <Modal disableAnimation scrollBehavior="inside" placement="auto" size="5xl" isOpen={isOpen} onClose={onClose}>
+      <Modal scrollBehavior="inside" size="5xl" isOpen={isOpen} onClose={onClose}
+             motionProps={{
+               variants: {
+                 enter: {
+                   y: 0,
+                   opacity: 1,
+                   transition: {
+                     duration: 0.3,
+                     ease: "easeOut",
+                   },
+                 },
+                 exit: {
+                   y: -20,
+                   opacity: 0,
+                   transition: {
+                     duration: 0.2,
+                     ease: "easeIn",
+                   },
+                 },
+               }
+             }}
+      >
         <ModalContent>
           {(onClose) => (
             <>

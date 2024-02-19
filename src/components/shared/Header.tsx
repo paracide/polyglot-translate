@@ -21,9 +21,9 @@ const Header = () => {
         <NavbarItem>
           <OlButton langArr={localeLangArr}/>
         </NavbarItem>
-        <NavbarItem>
+        {<NavbarItem>
           <TlButton langArr={localeLangArr}/>
-        </NavbarItem>
+        </NavbarItem>}
       </NavbarContent>
     </Navbar>
   );
