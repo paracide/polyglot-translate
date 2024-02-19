@@ -3,19 +3,22 @@ import React from 'react';
 import {Dropdown, DropdownItem, DropdownMenu, DropdownTrigger} from "@nextui-org/dropdown";
 import {Button} from "@nextui-org/button";
 import {localesNames} from "@/config/config";
-import {Link} from "@/i18n";
+import {useRouter} from "next/navigation";
 
 function LangButton() {
+  const router = useRouter();
+
 
   return (
     <Dropdown>
       <DropdownTrigger>
         <Button isIconOnly className="h-6 icon-[subway--world]" variant="solid"/>
       </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Dropdown menu with icons" items={localesNames}>
+      <DropdownMenu onAction={v => router.push("/" + v)}
+                    variant="faded" aria-label="Languages" items={localesNames}>
         {(localesNames) => (
           <DropdownItem key={localesNames.key} textValue={localesNames.label}>
-            <Link href="/" locale={localesNames.key}>{localesNames.label}</Link>
+            {localesNames.label}
           </DropdownItem>
         )
         }
