@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-
     * {
-        margin: 0;
+        @apply list-none p-0 m-0 scroll-smooth
     }
 
+    .wrapper {
+        @apply max-w-7xl lg:mx-auto px-5 py-3 md:px-10;
+    }
 
     .gradient {
         z-index: -1;

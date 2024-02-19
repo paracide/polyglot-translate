@@ -13,7 +13,7 @@ export default function OlButton(props: Props) {
 
   return (
     <>
-      <Button onPress={onOpen} variant="ghost">{title}</Button>
+      <Button onPress={onOpen} variant="flat">{title}</Button>
       <Modal disableAnimation scrollBehavior="inside" placement="auto" size="5xl" isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (

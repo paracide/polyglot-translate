@@ -12,7 +12,7 @@ const Header = () => {
   let localeLangArr: Array<[string, string]> = langArr.map(v => [v, langT(v)]);
 
   return (
-    <Navbar className="overflow-clip">
+    <Navbar>
       <NavbarBrand>
         <Image className="object-cover" src="/logo.webp" alt="logo" width={35} height={35}/>
         <span className="sm:flex hidden">{metaT('title')}</span>

@@ -20,7 +20,7 @@ export default function IndexPage() {
   subscribe(persistStore, () => localStorage.setItem(myStateKey, JSON.stringify(persistStore)))
 
   return (
-    <main className="grid grid-cols-1 md:grid-cols-3">
+    <main className="wrapper min-h-screen grid grid-cols-1 md:grid-cols-4 md:grid-rows-4 gap-3">
       <SearchCard/>
       {
         storageSnap.targetLang.map(lang =>

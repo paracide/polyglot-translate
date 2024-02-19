@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full">
+    <footer className="wrapper flex justify-center">
       <p>© 2024 yodon.top. All rights reserved.</p>
     </footer>
   );
