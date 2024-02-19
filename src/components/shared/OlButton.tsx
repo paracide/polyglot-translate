@@ -10,19 +10,18 @@ type Props = {
   langArr: Array<[string, string]>
 }
 
-export default function OlButton({langArr}: Props) {
+export default function OlButton({langArr}: Readonly<Props>) {
   const persistSnap = useSnapshot(persistStore);
-  const componentsT = useTranslations("components")
   const languageT = useTranslations("languages")
 
   return (
     <LangModal title={languageT(persistSnap.origLang)}>
-      <RadioGroup className="w-full flex-wrap" orientation="horizontal"
+      <RadioGroup className="flex justify-between flex-wrap" orientation="horizontal"
                   defaultValue={persistSnap.origLang}
                   onValueChange={v => persistStore.origLang = v}
       >
-        {langArr.map(([k, v], index) => (
-          <Radio size="sm" color="primary" className="w-48 max-w-48" key={index} value={k}>
+        {langArr.map(([k, v]) => (
+          <Radio size="sm" className="max-w-none md:w-48 w-44" key={k} value={k}>
             {v}
           </Radio>
         ))}

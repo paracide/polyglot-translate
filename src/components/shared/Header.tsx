@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <Navbar>
-      <NavbarBrand>
+      <NavbarBrand className="flex">
         <Image className="object-cover" src="/logo.webp" alt="logo" width={35} height={35}/>
         <span className="sm:flex hidden">{metaT('title')}</span>
       </NavbarBrand>
