@@ -15,10 +15,10 @@ export default function OlButton({langArr}: Readonly<Props>) {
   const languageT = useTranslations("languages")
 
   return (
-    <LangModal title={languageT(persistSnap.origLang)}>
+    <LangModal title={languageT(persistSnap.sourceLang)}>
       <RadioGroup className="flex justify-between flex-wrap" orientation="horizontal"
-                  defaultValue={persistSnap.origLang}
-                  onValueChange={v => persistStore.origLang = v}
+                  defaultValue={persistSnap.sourceLang}
+                  onValueChange={v => persistStore.sourceLang = v}
       >
         {langArr.map(([k, v]) => (
           <Radio size="sm" className="max-w-none md:w-48 w-44" key={k} value={k}>

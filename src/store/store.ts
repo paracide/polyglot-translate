@@ -3,7 +3,7 @@ import {proxyMap, subscribeKey} from "valtio/utils";
 import {translateAll} from "@/apis/googleApi";
 
 type PersistStore = {
-  origLang: string,
+  sourceLang: string,
   targetLang: Array<string>,
 }
 
@@ -13,8 +13,8 @@ type ResultStore = {
 }
 
 export const persistStore = proxy<PersistStore>({
-  origLang: 'en',
-  targetLang: ['zh-CN']
+  sourceLang: 'en',
+  targetLang: ['zh-CN', 'fr', 'de', 'es', 'ja']
 });
 
 export function setTargetLang(arr: Array<string>) {
@@ -26,6 +26,6 @@ export const resultStore = proxy<ResultStore>({
   results: proxyMap<string, string>()
 });
 
-subscribeKey(persistStore, 'origLang', v => {
+subscribeKey(persistStore, 'sourceLang', v => {
   translateAll();
 });

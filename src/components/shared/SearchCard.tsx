@@ -21,7 +21,7 @@ function SearchCard() {
   return (
     <Card className="w-full">
       <CardHeader className="justify-between overflow-hidden">
-        <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.origLang)}</Chip>
+        <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.sourceLang)}</Chip>
         <Chip size="sm" variant="light">
           <ButtonGroup>
             <Button color="primary" className="h-6 icon-[material-symbols--send]" isIconOnly

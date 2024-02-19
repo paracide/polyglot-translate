@@ -7,9 +7,7 @@
   "components": {
     "inputPlaceholder": "输入文本",
     "buttons": {
-      "submit": "提交",
-      "copyResult": "复制结果",
-      "originalLang": "原文",
+      "sourceLang": "源语言",
       "targetLang": "目标语言"
     }
   },

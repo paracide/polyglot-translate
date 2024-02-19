@@ -7,9 +7,7 @@
   "components": {
     "inputPlaceholder": "Enter Text",
     "buttons": {
-      "submit": "Submit",
-      "copyResult": "Copy Result",
-      "originalLang": "Original",
+      "sourceLang": "Source",
       "targetLang": "Target"
     }
   },

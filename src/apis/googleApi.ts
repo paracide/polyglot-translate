@@ -22,7 +22,7 @@ export function translateOne(targetLang: string) {
     resultStore.results.clear();
     return; // 直接返回，避免执行空的翻译请求
   }
-  return goGoogle(persistStore.origLang, targetLang, resultStore.input)
+  return goGoogle(persistStore.sourceLang, targetLang, resultStore.input)
     .then(response => resultStore.results.set(targetLang, response[0]))
     .catch(error => console.error('Translation error:', error));
 }
