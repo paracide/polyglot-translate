@@ -9,7 +9,7 @@
     }
 
     .wrapper {
-        @apply max-w-7xl lg:mx-auto px-5 py-3 md:px-10;
+        @apply max-w-7xl lg:mx-auto px-5 py-3;
     }
 
     .gradient {

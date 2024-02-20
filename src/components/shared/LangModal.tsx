@@ -13,7 +13,7 @@ export default function OlButton(props: Readonly<Props>) {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen} variant="light">{title}</Button>
+      <Button color="primary" onPress={onOpen} variant="flat">{title}</Button>
       <Modal scrollBehavior="inside" size="5xl" isOpen={isOpen} onClose={onClose}
              motionProps={{
                variants: {
