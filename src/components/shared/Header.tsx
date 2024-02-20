@@ -6,7 +6,6 @@ import langArr from "@/config/langArr";
 import TlButton from './TlButton';
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar";
 import LangButton from "@/components/shared/LangButton";
-import {ButtonGroup} from "@nextui-org/button";
 import {Link} from "@nextui-org/link";
 
 
@@ -22,8 +21,8 @@ const Header = () => {
         <span className="sm:flex hidden">{metaT('title')}</span>
       </NavbarBrand>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex gap-2">
+      <NavbarContent justify="end" className="align-middle">
+        <NavbarItem className="align-middle hidden sm:flex gap-2">
           <Link aria-label="github" className="text-xl icon-[skill-icons--github-light]"
                 href={process.env.LINK_GITHUB}/>
           <Link aria-label="instagram" className="text-xl icon-[skill-icons--instagram]"
@@ -31,13 +30,11 @@ const Header = () => {
           <Link aria-label="linkedin" className="text-xl icon-[skill-icons--linkedin]"
                 href={process.env.LINK_LINKEDIN}/>
         </NavbarItem>
-        <NavbarItem>
-          <ButtonGroup variant="flat" radius="full">
+        <NavbarItem className="flex align-middle gap-2">
             <OlButton langArr={localeLangArr}/>
             <TlButton langArr={localeLangArr}/>
-          </ButtonGroup>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="flex align-middle">
           <LangButton/>
         </NavbarItem>
       </NavbarContent>
