@@ -14,7 +14,7 @@ function LangButton() {
       <DropdownTrigger>
         <Button isIconOnly className="h-8 icon-[subway--world] text-blue-400" variant="solid"/>
       </DropdownTrigger>
-      <DropdownMenu onAction={v => router.push("/" + v)}
+      <DropdownMenu onAction={(v) => router.push("/" + v)}
                     variant="faded" aria-label="Languages" items={localesNames}>
         {(localesNames) => (
           <DropdownItem key={localesNames.key} textValue={localesNames.label}>
