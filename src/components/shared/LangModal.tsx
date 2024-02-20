@@ -1,8 +1,7 @@
 'use client'
 import React, {ReactNode} from "react";
-import {Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from "@nextui-org/modal";
-import {Button} from "@nextui-org/button";
-
+import {Modal, ModalFooter, useDisclosure} from "@nextui-org/modal";
+import {Button, ModalBody, ModalContent, ModalHeader} from "@nextui-org/react";
 
 type Props = {
   title: string;
@@ -14,9 +13,7 @@ export default function OlButton(props: Readonly<Props>) {
 
   return (
     <>
-      <Button size="sm" radius="full" color="primary"
-              className="w-20 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white" onPress={onOpen}
-              variant="flat">{title}</Button>
+      <Button color="primary" onPress={onOpen} variant="flat">{title}</Button>
       <Modal scrollBehavior="inside" size="5xl" isOpen={isOpen} onClose={onClose}
              motionProps={{
                variants: {
