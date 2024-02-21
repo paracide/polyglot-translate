@@ -37,7 +37,6 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
       <body>
         <Providers>
           <NextIntlClientProvider messages={messages}>
-            <div className="gradient"></div>
             <Header/>
             {children}
             <Footer/>
