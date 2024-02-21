@@ -1,29 +1,29 @@
 'use client'
 import React from 'react';
-import {useRouter} from "next/navigation";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from '../ui/dropdown-menu';
-import {Button} from "@/components/ui/button";
+import {Dropdown, DropdownItem, DropdownMenu, DropdownTrigger} from "@nextui-org/dropdown";
+import {Button} from "@nextui-org/button";
 import {localesNames} from "@/config/config";
+import {useRouter} from "next/navigation";
 
 function LangButton() {
   const router = useRouter();
-  const [position, setPosition] = React.useState("bottom")
+
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button className="h-8 icon-[subway--world] text-blue-400" variant="outline"/>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        {
-          localesNames.map(v =>
-            <DropdownMenuItem key={v.key} onSelect={event => router.push("/" + v.key)}>
-              {v.label}
-            </DropdownMenuItem>
-          )
+    <Dropdown>
+      <DropdownTrigger>
+        <Button isIconOnly className="h-8 icon-[subway--world] text-blue-400" variant="solid"/>
+      </DropdownTrigger>
+      <DropdownMenu onAction={(v) => router.push("/" + v)}
+                    variant="faded" aria-label="Languages" items={localesNames}>
+        {(localesNames) => (
+          <DropdownItem key={localesNames.key} textValue={localesNames.label}>
+            {localesNames.label}
+          </DropdownItem>
+        )
         }
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownMenu>)
+    </Dropdown>
   );
 }
 

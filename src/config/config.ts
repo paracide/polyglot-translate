@@ -1,10 +1,5 @@
 export const locales = ['en', 'zh', 'fr', 'de', 'ja', 'es'] as const;
-
-type LocaleName = {
-  key: string;
-  label: string;
-}
-export const localesNames: LocaleName[] = [
+export const localesNames = [
   {
     key: "en",
     label: "English",

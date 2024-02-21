@@ -1,11 +1,13 @@
 import React from 'react';
+import {Card, CardBody, CardHeader} from "@nextui-org/card";
 import {useTranslations} from "next-intl";
+import {Textarea} from "@nextui-org/input";
 import {persistStore, resultStore} from "@/store/store";
 import {useSnapshot} from "valtio";
+import {Chip} from "@nextui-org/chip";
+import {Button} from "@nextui-org/react";
 import {translateAll} from "@/apis/googleApi";
-import {Card, CardContent, CardHeader} from "@/components/ui/card";
-import {Badge} from "@/components/ui/badge";
-import {Textarea} from "@/components/ui/textarea";
+import {ButtonGroup} from "@nextui-org/button";
 
 function SearchCard() {
   const componentsT = useTranslations("components");
@@ -19,18 +21,23 @@ function SearchCard() {
   return (
     <Card className="w-full">
       <CardHeader className="justify-between overflow-hidden">
-        <Badge color="primary" variant="outline">{languageT(persistSnap.sourceLang)}</Badge>
-        <Badge color="primary" className="h-6 icon-[material-symbols--send]"
-               onClick={translateAll}/>
-        <Badge color="success" className="h-6 icon-[ph--copy]"
-               onClick={copyAll}/>
+        <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.sourceLang)}</Chip>
+        <Chip size="sm" variant="light">
+          <ButtonGroup>
+            <Button color="primary" className="h-6 icon-[material-symbols--send]" isIconOnly
+                    onClick={translateAll}/>
+            <Button color="success" className="h-6 icon-[ph--copy]" isIconOnly
+                    onClick={copyAll}/>
+          </ButtonGroup>
+        </Chip>
       </CardHeader>
-      <CardContent>
+      <CardBody>
         <Textarea
           className="w-full h-full"
+          minRows={2}
           placeholder={componentsT('inputPlaceholder')}
-          onChange={v => resultStore.input = v.target.value}/>
-      </CardContent>
+          onValueChange={v => resultStore.input = v}/>
+      </CardBody>
     </Card>
   );
 }

@@ -4,8 +4,9 @@ import {useTranslations} from "next-intl";
 import OlButton from "@/components/shared/OlButton";
 import langArr from "@/config/langArr";
 import TlButton from './TlButton';
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar";
 import LangButton from "@/components/shared/LangButton";
-import Link from "next/link";
+import {Link} from "@nextui-org/link";
 
 
 const Header = () => {
@@ -14,30 +15,30 @@ const Header = () => {
   let localeLangArr: Array<[string, string]> = langArr.map(v => [v, langT(v)]);
 
   return (
-    <header className="bg-transparent wrapper flex justify-between">
-      <div className="flex items-center">
-        <Image className="object-cover" src="/logo.webp" alt="logo" width={48} height={48}/>
+    <Navbar maxWidth='xl' className="bg-transparent">
+      <NavbarBrand className="flex">
+        <Image className="object-cover" src="/logo.webp" alt="logo" width={35} height={35}/>
         <span className="sm:flex hidden">{metaT('title')}</span>
-      </div>
+      </NavbarBrand>
 
-      <div className="flex gap-2 items-center">
-        <div className="align-middle hidden sm:flex gap-2">
+      <NavbarContent justify="end" className="align-middle">
+        <NavbarItem className="align-middle hidden sm:flex gap-2">
           <Link aria-label="github" className="text-xl icon-[skill-icons--github-light]"
-                href={process.env.LINK_GITHUB as string}/>
+                href={process.env.LINK_GITHUB}/>
           <Link aria-label="instagram" className="text-xl icon-[skill-icons--instagram]"
-                href={process.env.LINK_INSTAGRAM as string}/>
+                href={process.env.LINK_INSTAGRAM}/>
           <Link aria-label="linkedin" className="text-xl icon-[skill-icons--linkedin]"
-                href={process.env.LINK_LINKEDIN as string}/>
-        </div>
-        <div className="flex align-middle gap-2">
-          <OlButton langArr={localeLangArr}/>
-          <TlButton langArr={localeLangArr}/>
-        </div>
-        <div className="flex align-middle">
+                href={process.env.LINK_LINKEDIN}/>
+        </NavbarItem>
+        <NavbarItem className="flex align-middle gap-2">
+            <OlButton langArr={localeLangArr}/>
+            <TlButton langArr={localeLangArr}/>
+        </NavbarItem>
+        <NavbarItem className="flex align-middle">
           <LangButton/>
-        </div>
-      </div>
-    </header>
+        </NavbarItem>
+      </NavbarContent>
+    </Navbar>
   );
 };
 
