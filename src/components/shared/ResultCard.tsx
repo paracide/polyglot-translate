@@ -3,9 +3,8 @@ import React from 'react';
 import {useSnapshot} from "valtio";
 import {resultStore} from "@/store/store";
 import {useTranslations} from "next-intl";
-import {Card, CardBody, CardHeader} from "@nextui-org/card";
-import {Chip} from "@nextui-org/chip";
-import {Snippet} from "@nextui-org/snippet";
+import {Card, CardContent, CardHeader} from "@/components/ui/card";
+import {Badge} from "@/components/ui/badge";
 
 type Props = {
   lang: string;
@@ -19,17 +18,14 @@ export default function ResultCard({lang}: Readonly<Props>) {
     <Card className="w-full">
       <CardHeader>
         <div>
-          <Chip size="sm" color="default" variant="dot">{langT(lang)}</Chip>
+          <Badge color="default" variant="outline">{langT(lang)}</Badge>
         </div>
       </CardHeader>
-      <CardBody>
-        <Snippet className="h-full" hideSymbol variant="flat" color="default">
-
-          <div className="whitespace-normal">
-            {resultSnap.results.get(lang)}
-          </div>
-        </Snippet>
-      </CardBody>
+      <CardContent>
+        <div className="whitespace-normal">
+          {resultSnap.results.get(lang)}
+        </div>
+      </CardContent>
     </Card>
   );
 };
