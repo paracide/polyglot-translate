@@ -37,9 +37,11 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
       <body>
         <Providers>
           <NextIntlClientProvider messages={messages}>
-            <Header/>
-            {children}
-            <Footer/>
+            <main className="purple-dark text-foreground bg-background">
+              <Header/>
+              {children}
+              <Footer/>
+            </main>
           </NextIntlClientProvider>
         </Providers>
         <Analytics/>

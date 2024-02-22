@@ -8,6 +8,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar
 import LangButton from "@/components/shared/LangButton";
 import {Link} from "@nextui-org/link";
 import {FaGithub, FaInstagram, FaLinkedin} from "react-icons/fa6";
+import {ThemeSwitcher} from "@/components/shared/ThemeSwitcher";
 
 
 const Header = () => {
@@ -33,6 +34,7 @@ const Header = () => {
           <Link aria-label="linkedin" href={process.env.LINK_LINKEDIN}>
             <FaLinkedin/>
           </Link>
+          <ThemeSwitcher/>
         </NavbarItem>
         <NavbarItem className="flex align-middle gap-2">
           <OlButton langArr={localeLangArr}/>
