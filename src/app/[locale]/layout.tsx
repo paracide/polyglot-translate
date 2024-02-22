@@ -35,6 +35,9 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
 
   return (
     <html lang={locale}>
+      <head>
+        <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_GOOGLE_AD_SENSE_ACCOUNT}/>
+      </head>
       <body>
         <Providers>
           <NextIntlClientProvider messages={messages}>
