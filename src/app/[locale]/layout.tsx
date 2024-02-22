@@ -7,6 +7,7 @@ import {NextIntlClientProvider, useMessages} from "next-intl";
 import {Providers} from "@/app/[locale]/provider";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from "@vercel/speed-insights/next";
+import {GoogleAnalytics, GoogleTagManager} from '@next/third-parties/google'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));
@@ -46,6 +47,8 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
         </Providers>
         <Analytics/>
         <SpeedInsights/>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_GTM_ID as string}/>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_GA_ID as string}/>
       </body>
     </html>
   );

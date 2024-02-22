@@ -6,9 +6,9 @@ import {persistStore, resultStore} from "@/store/store";
 import {useSnapshot} from "valtio";
 import {Chip} from "@nextui-org/chip";
 import {Button} from "@nextui-org/react";
-import {translateAll} from "@/apis/googleApi";
 import {ButtonGroup} from "@nextui-org/button";
 import {MdCopyAll, MdSend} from "react-icons/md";
+import {translateAll} from "@/apis/googleApi";
 
 function SearchCard() {
   const componentsT = useTranslations("components");
@@ -19,13 +19,18 @@ function SearchCard() {
     navigator.clipboard.writeText(persistStore.targetLang.map(v => resultStore.results.get(v)).join("\t"));
   }
 
+  const handleSend = () => {
+    translateAll();
+  }
+
+
   return (
     <Card className="w-full">
       <CardHeader className="justify-between overflow-hidden">
         <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.sourceLang)}</Chip>
         <Chip size="sm" variant="light">
           <ButtonGroup>
-            <Button color="primary" variant="light" isIconOnly onClick={translateAll}>
+            <Button color="primary" variant="light" isIconOnly onClick={handleSend}>
               <MdSend size={25}/>
             </Button>
             <Button color="secondary" variant="light" isIconOnly onClick={copyAll}>
