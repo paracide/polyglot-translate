@@ -19,11 +19,10 @@
     "next-intl": "^3.5.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.0.1",
     "valtio": "^1.13.1"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.183",
-    "@iconify/tailwind": "^0.1.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

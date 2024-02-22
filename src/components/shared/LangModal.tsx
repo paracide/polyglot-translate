@@ -1,7 +1,8 @@
 'use client'
 import React, {ReactNode} from "react";
-import {Modal, ModalFooter, useDisclosure} from "@nextui-org/modal";
-import {Button, ModalBody, ModalContent, ModalHeader} from "@nextui-org/react";
+import {Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from "@nextui-org/modal";
+import {Button} from "@nextui-org/button";
+
 
 type Props = {
   title: string;

@@ -1,6 +1,5 @@
 import type {Config} from "tailwindcss"
 import {nextui} from "@nextui-org/react";
-import {addDynamicIconSelectors} from "@iconify/tailwind";
 
 
 const config = {
@@ -17,7 +16,7 @@ const config = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui(), addDynamicIconSelectors()],
+  plugins: [nextui()],
 } satisfies Config
 
 export default config

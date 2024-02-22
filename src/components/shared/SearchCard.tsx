@@ -8,6 +8,7 @@ import {Chip} from "@nextui-org/chip";
 import {Button} from "@nextui-org/react";
 import {translateAll} from "@/apis/googleApi";
 import {ButtonGroup} from "@nextui-org/button";
+import {MdCopyAll, MdSend} from "react-icons/md";
 
 function SearchCard() {
   const componentsT = useTranslations("components");
@@ -24,10 +25,12 @@ function SearchCard() {
         <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.sourceLang)}</Chip>
         <Chip size="sm" variant="light">
           <ButtonGroup>
-            <Button color="primary" className="h-6 icon-[material-symbols--send]" isIconOnly
-                    onClick={translateAll}/>
-            <Button color="success" className="h-6 icon-[ph--copy]" isIconOnly
-                    onClick={copyAll}/>
+            <Button variant="light" isIconOnly onClick={translateAll}>
+              <MdSend size={25}/>
+            </Button>
+            <Button variant="light" isIconOnly onClick={copyAll}>
+              <MdCopyAll size={25}/>
+            </Button>
           </ButtonGroup>
         </Chip>
       </CardHeader>
