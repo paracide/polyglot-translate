@@ -48,6 +48,7 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
             </main>
           </NextIntlClientProvider>
         </Providers>
+
         <Analytics/>
         <SpeedInsights/>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_GTM_ID as string}/>
