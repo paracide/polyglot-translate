@@ -1,6 +1,7 @@
 import {proxy} from "valtio";
 import {proxyMap, subscribeKey} from "valtio/utils";
-import {translateAll} from "@/apis/googleApi";
+
+import {translateAll} from "@/apis/translate";
 
 type PersistStore = {
   sourceLang: string,

@@ -1,4 +1,5 @@
-const langArr = [
+//support languages
+export const SUPPORT_LANG_LIST = [
   "af",
   "sq",
   "am",
@@ -107,4 +108,4 @@ const langArr = [
   "zu"
 ]
 
-export default langArr
+

@@ -8,7 +8,8 @@ import {Chip} from "@nextui-org/chip";
 import {Button} from "@nextui-org/react";
 import {ButtonGroup} from "@nextui-org/button";
 import {MdCopyAll, MdSend} from "react-icons/md";
-import {translateAll} from "@/apis/googleApi";
+
+import {translateAll} from "@/apis/translate";
 
 function SearchCard() {
   const componentsT = useTranslations("components");

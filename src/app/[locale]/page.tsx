@@ -9,7 +9,7 @@ export default function IndexPage() {
   const storageSnap = useSnapshot(persistStore);
   const myStateKey = "config";
 
-  //only read the config from localstorage when load the page or refresh
+  //only read the constant from localstorage when load the page or refresh
   useEffect(() => {
     const storedState = localStorage.getItem(myStateKey);
     if (storedState) {

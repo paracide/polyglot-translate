@@ -1,5 +1,4 @@
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {locales} from '@/config/config';
 import Header from "@/components/shared/Header";
 import {NodeProps} from "@/types/types";
 import Footer from "@/components/shared/Footer";
@@ -8,9 +7,11 @@ import {Providers} from "@/app/[locale]/provider";
 import {Analytics} from "@vercel/analytics/next";
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import {GoogleAnalytics, GoogleTagManager} from '@next/third-parties/google'
+import {SYS_SERVICE} from "../../../PT_CONFIG";
+import {LOCALES} from "@/i18n";
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({locale}));
+  return LOCALES.map((locale) => ({locale}));
 }
 
 //meta
@@ -36,7 +37,7 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
   return (
     <html lang={locale}>
       <head>
-        <meta name="google-adsense-account" content={process.env.NEXT_PUBLIC_GOOGLE_AD_SENSE_ACCOUNT}/>
+        <meta name="google-adsense-account" content={SYS_SERVICE.google.adSenseAccount}/>
       </head>
       <body>
         <Providers>
@@ -51,8 +52,8 @@ export default function LocaleLayout(props: Readonly<NodeProps>) {
 
         <Analytics/>
         <SpeedInsights/>
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_GTM_ID as string}/>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_GA_ID as string}/>
+        <GoogleTagManager gtmId={SYS_SERVICE.google.gtmId}/>
+        <GoogleAnalytics gaId={SYS_SERVICE.google.gaId}/>
       </body>
     </html>
   );
