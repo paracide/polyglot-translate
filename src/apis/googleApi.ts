@@ -1,5 +1,7 @@
+import {API_SERVICE} from "../../PT_CONFIG";
+
 export async function goGoogle(originalLang: string, targetLang: string, text: string): Promise<string[]> {
-  const baseUrl = "";
+  const baseUrl = API_SERVICE.google.url;
   const queryParams = new URLSearchParams({
     client: "dict-chrome-ex",
     sl: originalLang,

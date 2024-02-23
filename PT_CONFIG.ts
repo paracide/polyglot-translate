@@ -5,14 +5,12 @@ export const SOCIAL_MEDIA = {
 }
 
 export const API_SERVICE = {
-  api: {
-    google: {
-      url: 'https://clients5.google.com/translate_a/t',
-    },
-    deepl: {
-      url: ''
-    }
+  google: {
+    url: 'https://clients5.google.com/translate_a/t',
   },
+  deepl: {
+    url: ''
+  }
 }
 
 export const SYS_SERVICE = {
