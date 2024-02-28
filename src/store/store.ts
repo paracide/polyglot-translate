@@ -1,8 +1,8 @@
-import {proxy} from "valtio";
+import {proxy, subscribe} from "valtio";
 import {proxyMap, subscribeKey} from "valtio/utils";
 import {translateAll} from "@/apis/translate";
 
-
+export const STATE_KEY = "config";
 type PersistStore = {
   sourceLang: string,
   targetLang: Array<string>,
@@ -30,3 +30,5 @@ export const resultStore = proxy<ResultStore>({
 subscribeKey(persistStore, 'sourceLang', v => {
   translateAll();
 });
+
+subscribe(persistStore, () => localStorage.setItem(STATE_KEY, JSON.stringify(persistStore)))
