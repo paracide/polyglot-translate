@@ -15,7 +15,7 @@ export default function OlButton(props: Readonly<Props>) {
   return (
     <>
       <Button size="sm" radius="full" color="primary"
-              className="w-20 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white" onPress={onOpen}
+              className="min-w-20 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white" onPress={onOpen}
               variant="flat">{title}</Button>
       <Modal scrollBehavior="inside" size="5xl" isOpen={isOpen} onClose={onClose}
              motionProps={{

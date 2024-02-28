@@ -24,7 +24,6 @@ export default function ResultCard({lang}: Readonly<Props>) {
       </CardHeader>
       <CardBody>
         <Snippet className="h-full" hideSymbol variant="flat" color="default">
-
           <div className="whitespace-normal">
             {resultSnap.results.get(lang)}
           </div>

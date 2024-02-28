@@ -9,7 +9,8 @@ export const API_SERVICE = {
     url: 'https://clients5.google.com/translate_a/t',
   },
   deepl: {
-    url: ''
+    url: 'https://api-free.deepl.com/v2/translate',
+    key: process.env.DEEPL_API_KEY
   }
 }
 
