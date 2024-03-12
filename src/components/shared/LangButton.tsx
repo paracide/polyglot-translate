@@ -17,11 +17,11 @@ function LangButton() {
       </DropdownTrigger>
       <DropdownMenu onAction={(v) => router.push("/" + v)}
                     variant="faded" aria-label="Languages" items={LOCAL_NAMES}>
-        {(localesNames) => (
-          <DropdownItem key={localesNames.key} textValue={localesNames.label}>
-            {localesNames.label}
-          </DropdownItem>
-        )
+        {
+          localesNames =>
+            <DropdownItem key={localesNames.key} textValue={localesNames.label}>
+              {localesNames.label}
+            </DropdownItem>
         }
       </DropdownMenu>)
     </Dropdown>

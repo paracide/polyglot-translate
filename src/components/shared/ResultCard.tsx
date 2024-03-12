@@ -16,7 +16,7 @@ type Props = {
 export default function ResultCard({lang}: Readonly<Props>) {
   const resultSnap = useSnapshot(resultStore);
   const langT = useTranslations("languages")
-  const result = resultSnap.results.get(lang);
+  const result = resultSnap.results.get(lang) ?? '';
 
   return (
     <Card className="w-full">
@@ -28,7 +28,7 @@ export default function ResultCard({lang}: Readonly<Props>) {
                 onClick={() => {
                   const utterance = new SpeechSynthesisUtterance();
                   if (!isEmpty(result) && !isEmpty(lang)) {
-                    utterance.text = result as string;
+                    utterance.text = result;
                     utterance.lang = lang;
                     window.speechSynthesis.speak(utterance);
                   }

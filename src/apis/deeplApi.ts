@@ -1,7 +1,7 @@
 'use server'
 import {API_SERVICE} from "../../PT_CONFIG";
-import _ from "lodash";
 
+//Deepl api response type
 type Resp = {
   translations: Array<{
     detected_source_language: string;
@@ -9,17 +9,16 @@ type Resp = {
   }>;
 };
 
+//Deepl api request type
 export type Req = {
   text: string | null;
   targetLang: string | null;
 }
 
-export const fetchDeepl = async (req: Req): Promise<Resp> => {
+//Deepl api fetch function
+export async function fetchDeepl(req: Req): Promise<Resp> {
   const {text, targetLang} = req;
-  if (_.isEmpty(text) || _.isEmpty(targetLang)) {
-    throw new Error('Empty Input');
-  }
-
+  //fetch deepl api
   const response = await fetch(API_SERVICE.deepl.url, {
     method: 'POST',
     headers: {
@@ -27,16 +26,12 @@ export const fetchDeepl = async (req: Req): Promise<Resp> => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      text: [text],
-      target_lang: targetLang
+      text: [text!],
+      target_lang: targetLang!
     })
   });
-
-  if (!response.ok) {
-    console.log(response.json());
-    throw new Error('response is not ok');
-  }
-  return await response.json();
-};
+  //return response
+  return await response?.json();
+}
 
 
