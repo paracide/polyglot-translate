@@ -17,3 +17,7 @@ export async function fetchFreeGoogle(originalLang: string, targetLang: string, 
   return await response.json() as Promise<string[]>;
 }
 
+export async function fetchGoogleCloud(originalLang: string, targetLang: string, text: string) {
+
+}
+

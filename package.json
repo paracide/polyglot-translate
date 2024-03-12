@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/translate": "^8.1.0",
     "@next/third-parties": "^14.1.0",
     "@nextui-org/react": "^2.2.9",
     "@types/lodash": "^4.14.202",

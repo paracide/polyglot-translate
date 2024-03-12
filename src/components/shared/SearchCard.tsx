@@ -25,11 +25,11 @@ function SearchCard() {
         <Chip size="sm" color="primary" variant="flat">{languageT(persistSnap.sourceLang)}</Chip>
         <Chip size="sm" variant="light">
           <ButtonGroup>
-            <Button color="primary" variant="light" isIconOnly onClick={translateAll}>
-              <MdSend size={25}/>
+            <Button size='sm' color="primary" variant="light" isIconOnly onClick={translateAll}>
+              <MdSend size={20}/>
             </Button>
-            <Button color="secondary" variant="light" isIconOnly onClick={copyAll}>
-              <MdCopyAll size={25}/>
+            <Button size='sm' color="secondary" variant="light" isIconOnly onClick={copyAll}>
+              <MdCopyAll size={20}/>
             </Button>
           </ButtonGroup>
         </Chip>
