@@ -1,5 +1,4 @@
 'use client'
-import React, {useEffect, useState} from 'react';
 import {useSnapshot} from "valtio";
 import {resultStore} from "@/store/store";
 import {useTranslations} from "next-intl";
@@ -18,11 +17,6 @@ export default function ResultCard({lang}: Readonly<Props>) {
   const resultSnap = useSnapshot(resultStore);
   const langT = useTranslations("languages")
   const result = resultSnap.results.get(lang);
-  const [speaker, setSpeaker] = useState<SpeechSynthesis>();
-
-  useEffect(() => {
-    setSpeaker(window.speechSynthesis);
-  }, []);
 
   return (
     <Card className="w-full">
